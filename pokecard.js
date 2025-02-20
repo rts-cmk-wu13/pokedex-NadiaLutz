@@ -47,9 +47,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${numericId}`)
                 </ul>
                 <h3>About</h3>
                 <ul class="description__ul">
-                    <li>Height: ${pokemon.height / 10}m</li>
-                    <li>Weight: ${pokemon.weight / 10}kg</li>
-                    <li>Moves: ${pokemon.moves.slice(0, 5).map(m => m.move.name).join(', ')}</li>
+                    <li>${pokemon.height / 10}m <p>height</p></li>
+                    <li>${pokemon.weight / 10}kg <p>weight</p></li>
+                    <li>${pokemon.moves.slice(0, 5).map(m => m.move.name).join(', ')} <p>moves</p></li>
                    <h3>Base Stats</h3>
                     ${pokemon.stats.map(function(stats){
                         return `<li>${stats.stat.name}: ${stats.base_stat}</li>`
