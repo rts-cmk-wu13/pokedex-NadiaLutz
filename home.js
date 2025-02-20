@@ -2,22 +2,35 @@
 let sectionElm = document.createElement("section")
 sectionElm.class = "pokelist"
 
-fetch("/data/pokemon.json")
-   .then(function(response) {
-    return response.json()
-   }).then(
+
+const pokemonIds = [1, 4, 7, 12, 25, 92, 132, 151, 304]; 
+
+
+Promise.all(pokemonIds.map(id => 
+  fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+    .then(response => response.json())
+)).then(
     function(data) {
 
+
 let divElm = document.createElement("div")
- divElm.innerHTML = data.map(function(pokemon) {
+ divElm.innerHTML = data.map(function(pokemon, index) {
    
-  let id = pokemon.url.slice(0, -1).split("/").pop()
+  let id = pokemon.id
+  let pokemonId = pokemon.id.toString().padStart(3, '0')
+
+
   console.log(id);
   
    return `
+   
    <article>
+    <a href="pokecard.html?id=${pokemonId}">
     <h2>${pokemon.name}</h2>
-    <img src="----URL-----/$(id).png">
+    <p>#${pokemonId}</p>
+
+    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/other/official-artwork/${id}.png">
+    </a>
     </article>
    `
  }).join("")
