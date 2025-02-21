@@ -8,18 +8,22 @@ main section div {
     grid-template-columns: repeat(3, 1fr);
     row-gap: 1rem;
     column-gap: 1rem;
-    background: var(--primary-bg);
-    padding: 1rem;
+    background: white;
+    padding: 2rem 1rem 13rem 1rem;
     border-radius: 0.5rem;
-    margin: 1rem 0.5rem 8rem 1rem;
+    margin: 1.5rem 0.5rem 0.5rem 0.5rem;
 }
 
 .pokelist__card {
     border-radius: 0.5rem;
-    box-shadow: 1px 10px 10px grey;
+    box-shadow: 1px 2px 10px rgb(166, 166, 166);
     background: linear-gradient(white 0%, white 65%, rgb(230, 230, 230) 66%);
+}
+
+.pokelist__card a {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .pokelist__card p {
@@ -28,8 +32,10 @@ main section div {
     margin-block-end: 0.5rem;
 }
 
-.pokelist__card span {
+.pokelist__card a span {
     color: grey;
+    margin-inline: auto 0;
+    padding: 0.5rem;
 }
 
 .pokelist__card a {
@@ -37,5 +43,13 @@ main section div {
 }
 
 .pokelist__card img {
-    width: 9rem;
+    padding: 0 1.5rem;
+}
+
+
+.about__stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    margin-block: 1rem;
 }

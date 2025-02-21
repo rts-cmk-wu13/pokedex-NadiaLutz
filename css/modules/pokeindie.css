@@ -1,0 +1,50 @@
+
+.detail__section {
+    height: 100vh;
+}
+
+.pokecard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem;
+    width: 90%;
+}
+
+.pokecard img {
+    width: 30%;
+}
+
+.pokecard span, h2 {
+    color: white;
+}
+
+.pokecard__top {
+    display: flex;
+    align-items: left;
+    gap: 1rem;
+}
+
+
+.detail__div--item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+
+.detail__div--item img {
+width: 50%;
+}
+
+.detail__ul {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.description__ul li {
+    display: flex;
+    flex-direction: column;
+}

@@ -16,15 +16,14 @@
     gap: 0;
 }
 
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 header, main {
     background: var(--primary-red);
     margin: 0;
     padding: 0;
-}
-
-main {
-    height: 100vh;
 }
 
 
@@ -47,4 +46,9 @@ a {
 
 img {
     max-width: 100%;
+}
+
+
+.sort__btn, .search, main section div {
+    box-shadow: inset 1px 1px 5px 1px rgb(119, 119, 119);
 }

@@ -32,14 +32,15 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${numericId}`)
             let div = document.createElement("div");
             div.classList.add("detail__div--item");
             div.innerHTML = `
-            <div>      
-                <button class="return"><a href="index.html">&larr;</a></button>
-                    <h2>${pokemon.name} 
-                    <span>#${pokemonId}
+            <div class="pokecard">      
+            <div class="pokecard__top">
+                <button class="return"><a href="index.html"> <img src="img/arrow_back.png"></a></button>
+                    <h2>${pokemon.name}</h2> 
+                    </div>
+                    <span>#${pokemonId}</span>
+                     </div>
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png">
-                </div>
-                <div>
-                <h3>Types:</h3>
+
                 <ul class="detail__ul">
                 ${pokemon.types.map(function(type){
                     return `<li>${type.type.name}</li>`
@@ -47,10 +48,12 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${numericId}`)
                 </ul>
                 <h3>About</h3>
                 <ul class="description__ul">
+                <div class="about__stats">
                     <li>${pokemon.height / 10}m <p>height</p></li>
                     <li>${pokemon.weight / 10}kg <p>weight</p></li>
-                    <li>${pokemon.moves.slice(0, 5).map(m => m.move.name).join(', ')} <p>moves</p></li>
-                   <h3>Base Stats</h3>
+                    <li>${pokemon.moves.slice(0, 1).map(m => m.move.name).join(', ')} <p>moves</p></li>
+                   </div>
+                    <h3>Base Stats</h3>
                     ${pokemon.stats.map(function(stats){
                         return `<li>${stats.stat.name}: ${stats.base_stat}</li>`
                     }).join('')}
