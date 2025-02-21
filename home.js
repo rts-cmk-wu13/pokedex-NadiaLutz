@@ -21,17 +21,16 @@ let divElm = document.createElement("div")
 
 
   console.log(id);
-  
    return `
    
-   <article>
+ 
+  <li class="pokelist__card">
     <a href="pokecard.html?id=${pokemonId}">
-    <h2>${pokemon.name}</h2>
-    <p>#${pokemonId}</p>
-
+    <span>#${pokemonId}</span>
     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/other/official-artwork/${id}.png">
+    <p>${pokemon.name}</p>
     </a>
-    </article>
+    </li>
    `
  }).join("")
 

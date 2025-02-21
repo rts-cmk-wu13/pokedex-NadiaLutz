@@ -1,0 +1,50 @@
+
+:root {
+    --primary-red: #DC0A2D;
+    --primary-bg: #EFEFEF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+
+header, main {
+    background: var(--primary-red);
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    height: 100vh;
+}
+
+
+section {
+    background: var(--primary-bg);
+}
+
+
+ul {
+    list-style: none;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
