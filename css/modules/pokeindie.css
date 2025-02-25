@@ -1,50 +1,121 @@
-
 .detail__section {
-    height: 100vh;
+  height: 100vh;
+}
+
+.return {
+  background: none;
+  border: none;
+  color: white;
+  width: 3rem;
 }
 
 .pokecard {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 2rem;
-    width: 90%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 2rem 8rem 2rem;
+  width: 90%;
 }
 
 .pokecard img {
-    width: 30%;
+  width: 30%;
 }
 
-.pokecard span, h2 {
-    color: white;
+.pokecard__img {
+  position: absolute;
+  top: 15%;
+}
+
+.pokecard span,
+h2 {
+  color: white;
 }
 
 .pokecard__top {
-    display: flex;
-    align-items: left;
-    gap: 1rem;
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  gap: 1rem;
 }
-
 
 .detail__div--item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
-
 .detail__div--item img {
-width: 50%;
+  width: 50%;
+}
+
+.pokecard__info {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: inset 1px 1px 5px 1px rgb(170, 170, 170);
+  width: 98%;
 }
 
 .detail__ul {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.pokecard__info h3 {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.detail__ul li {
+  margin-top: 5rem;
+  border-radius: 0.75rem;
+  padding: 0.25rem 0.45rem;
+  color: white;
 }
 
 .description__ul li {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+}
+
+.description__ul li span {
+  font-size: 0.75rem;
+  color: #000;
+}
+
+.about__stats {
+  display: flex;
+  justify-content: center;
+  margin-block: 2rem;
+  gap: 2rem;
+}
+
+.about__stats li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.about__stats li:nth-child(2) {
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+  padding-inline: 2rem;
+}
+
+.about__stats li p {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.about__stats li p img {
+  width: 1rem;
+  height: 1rem;
+}
+
+.about__stats li span {
+  color: gray;
 }

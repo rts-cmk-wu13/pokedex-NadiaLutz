@@ -1,42 +1,52 @@
+let sectionElm = document.createElement("section");
+sectionElm.className = "pokelist";
 
-let sectionElm = document.createElement("section")
-sectionElm.class = "pokelist"
+// let pokemonIds = [1, 4, 7, 12, 25, 92, 132, 151, 304]; 
 
+function getIdFromPokemon(pokemonUrl) {
+  return pokemonUrl.slice(0, -1).split("/").pop();
+}
 
-const pokemonIds = [1, 4, 7, 12, 25, 92, 132, 151, 304]; 
+let currentOffset = 0;
 
+const observer = new IntersectionObserver(function(entries) { 
+  entries.forEach(function(entry) {
+    if(entry.isIntersecting) {
+      currentOffset = currentOffset + 50;
 
-Promise.all(pokemonIds.map(id => 
-  fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-    .then(response => response.json())
-)).then(
-    function(data) {
-
-
-let divElm = document.createElement("div")
- divElm.innerHTML = data.map(function(pokemon, index) {
-   
-  let id = pokemon.id
-  let pokemonId = pokemon.id.toString().padStart(3, '0')
-
-
-  console.log(id);
-   return `
-   
- 
-  <li class="pokelist__card">
-    <a href="pokecard.html?id=${pokemonId}">
-    <span>#${pokemonId}</span>
-    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/other/official-artwork/${id}.png">
-    <p>${pokemon.name}</p>
-    </a>
-    </li>
-   `
- }).join("")
-
-sectionElm.append(divElm)
-
+      if(currentOffset < 1304) {
+        fetchPokemon(currentOffset);
+      } else {
+        console.log("No more Pokemon to fetch");
+      }
     }
-   )
+  });
+});
 
-document.querySelector("main").append(sectionElm)
+function fetchPokemon(offset) {
+  fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=50`)
+    .then(function(response) {
+      return response.json();
+    }).then(function(data) {
+      console.log(data);
+      sectionElm.innerHTML += data.results.map(pokemon => {
+        const pokemonId = getIdFromPokemon(pokemon.url);
+        const artworkUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`;
+        return `
+          <article> 
+            <li class="pokelist__card">
+              <span>#${pokemonId.toString().padStart(3, '0')}</span>
+              <a href="pokecard.html?id=${pokemonId}"><img src="${artworkUrl}" alt="${pokemon.name}"></a>
+              <p>${pokemon.name}</p>
+            </li>
+          </article>
+        `;
+      }).join("");
+      
+      let observedPokemon = document.querySelector("article:nth-last-child(5)");
+      observer.observe(observedPokemon);
+    });
+}
+
+document.querySelector("main").append(sectionElm);
+fetchPokemon(currentOffset);
