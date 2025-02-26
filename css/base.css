@@ -49,6 +49,6 @@ img {
 }
 
 
-.sort__btn, .search, main section div {
+.sort__btn, .search, .pokecard__info, main section div {
     box-shadow: inset 1px 1px 5px 1px rgb(119, 119, 119);
 }

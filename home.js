@@ -24,7 +24,7 @@ const observer = new IntersectionObserver(function(entries) {
 });
 
 function fetchPokemon(offset) {
-  fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=50`)
+  fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=12`)
     .then(function(response) {
       return response.json();
     }).then(function(data) {
@@ -36,7 +36,7 @@ function fetchPokemon(offset) {
           <article> 
             <li class="pokelist__card">
               <span>#${pokemonId.toString().padStart(3, '0')}</span>
-              <a href="pokecard.html?id=${pokemonId}"><img src="${artworkUrl}" alt="${pokemon.name}"></a>
+              <a href="pokecard.html?id=${pokemonId}"><img loading="lazy" src="${artworkUrl}" alt="${pokemon.name}"></a>
               <p>${pokemon.name}</p>
             </li>
           </article>
