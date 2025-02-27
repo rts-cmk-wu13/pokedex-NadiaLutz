@@ -1,7 +1,8 @@
+
+
 let sectionElm = document.createElement("section");
 sectionElm.className = "pokelist";
 
-// let pokemonIds = [1, 4, 7, 12, 25, 92, 132, 151, 304]; 
 
 function getIdFromPokemon(pokemonUrl) {
   return pokemonUrl.slice(0, -1).split("/").pop();
@@ -50,3 +51,6 @@ function fetchPokemon(offset) {
 
 document.querySelector("main").append(sectionElm);
 fetchPokemon(currentOffset);
+
+
+
