@@ -1,9 +1,10 @@
 console.log(window.location);
 
-let search = window.location.search;
-let params = new URLSearchParams(search);
-let id = params.get("id");
+let searchQuery = window.location.search;
 
+let queryParams = new URLSearchParams(searchQuery);
+
+let id = queryParams.get("id");
 
 function returnBtn(event) {
     event.preventDefault();
@@ -107,17 +108,17 @@ function fetchPokemonById(id) {
                     <div class="about__stats">
                         <li><p><img src="img/weight.png">${pokemon.weight / 10}kg</p><span>weight</span></li>
                         <li><p><img src="img/height.png">${pokemon.height / 10}m</p><span>height</span></li>
-                        <li><p>${pokemon.moves.slice(0, 1).map(m => m.move.name).join(', ')}</p> <span>moves<span></li>
+                        <li>${pokemon.moves.slice(0, 1).map(m => m.move.name).join(', ')}</p> <span>moves<span></li>
                     </div>
-                      <p>${description}</p>  
+                      <p class="about__stats-description">${description}</p>  
                 </div>
 
                     <h3 style="color: ${getBackgroundColor(pokemon.types.map(typeInfo => typeInfo.type.name))};">Base Stats</h3>
-                    <div class="stats-grid"> ${pokemon.stats.map(function(stats) {
+                    <div class="stats__grid"> ${pokemon.stats.map(function(stats) {
                         return `
-                            <span style="color: ${getBackgroundColor(pokemon.types.map(typeInfo => typeInfo.type.name))};" class="stat-name">${stats.stat.name}</span>
-                              <div class="stat__value-border"> <span class="stat__value">${stats.base_stat}</span></div>
-                            <div class="stat__bar" style="width: ${stats.base_stat * 1.25}px; background-color: ${getBackgroundColor(pokemon.types.map(typeInfo => typeInfo.type.name))};"></span>       
+                            <span style="color: ${getBackgroundColor(pokemon.types.map(typeInfo => typeInfo.type.name))};" class="stat__name">${stats.stat.name}</span>
+                              <div class="stat__value-border"> <span class="stat__value">${stats.base_stat.toString().padStart(3, '0')}</span></div>
+                            <div class="stat__bar" style="width: ${stats.base_stat * 2}px; background-color: ${getBackgroundColor(pokemon.types.map(typeInfo => typeInfo.type.name))};"></span>       
                        </div>`; 
                     }).join('')}
                   </div>

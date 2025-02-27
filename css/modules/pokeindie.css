@@ -1,5 +1,5 @@
 .detail__section {
-  height: auto; 
+  height: auto;
 }
 
 .detail__div--item {
@@ -24,20 +24,21 @@
 .return {
   background: none;
   border: none;
-  color: black; 
+  color: black;
   width: 3rem;
 }
 
 .pokecard {
   position: relative;
-  display: flex; 
+  display: flex;
   gap: 10rem;
-  justify-content: space-between; 
-  align-items: center; 
+  justify-content: space-between;
+  align-items: center;
   padding: 2rem 2rem 15rem 2rem;
 }
 
-.pokecard span, h2 {
+.pokecard span,
+h2 {
   color: white;
 }
 
@@ -62,7 +63,7 @@
 }
 
 .pokecard__info {
-  background: #f9f9f9; 
+  background: #f9f9f9;
   padding: 1rem;
   border-radius: 8px;
   margin-inline: 0.25rem;
@@ -90,7 +91,7 @@
 }
 
 .about__stats {
-  display: flex; 
+  display: flex;
   justify-content: center;
   gap: 3rem;
   margin-block-end: 2rem;
@@ -100,7 +101,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .about__stats p {
@@ -120,21 +122,26 @@
   padding-inline: 2rem;
 }
 
-
-.stats-grid {
-  display: grid; 
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 1rem; 
+.about__stats img {
+  width: 1.5rem;
 }
 
+.about__stats-description {
+  margin-inline: 2rem;
+}
 
-.stat-item {
-  display: flex; 
-  justify-content: space-between;
-  align-items: center;
+.stats__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: 1rem;
 }
 
 .stat__bar {
   border-radius: 1rem;
   height: 0.5rem;
+}
+
+.stat__name {
+  text-transform: uppercase;
+  font-family: "Poppins-Bold";
 }
