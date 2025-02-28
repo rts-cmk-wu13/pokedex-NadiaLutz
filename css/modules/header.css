@@ -2,7 +2,7 @@
 header {
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 100%;
 }
 
 header span {
@@ -36,6 +36,16 @@ header span {
     border: none;
     width: 80%;
     height: 3rem;
+    font-size: 1.5rem;
+    padding-inline-start: 4rem;
+    background-image: url(/img/search.png);
+    background-size: 2rem;
+    background-position: 1rem;
+    background-repeat: no-repeat;
+}
+
+input:focus {
+    outline: none;
 }
 
 .sort__btn {

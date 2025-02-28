@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
 }
 
 .pokeball__img {
@@ -16,11 +17,6 @@
   z-index: 0;
 }
 
-.detail__div--item h3 {
-  text-align: center;
-  margin-block: 2rem;
-}
-
 .return {
   background: none;
   border: none;
@@ -28,13 +24,23 @@
   width: 3rem;
 }
 
+.return__arrow {
+  width: 3.5rem;
+  cursor: pointer;
+}
+
+.detail__div--item h3 {
+  text-align: center;
+  margin-block: 2rem;
+}
+
 .pokecard {
   position: relative;
   display: flex;
+  justify-content: center;
   gap: 10rem;
-  justify-content: space-between;
   align-items: center;
-  padding: 2rem 2rem 15rem 2rem;
+  padding: 2rem 2rem 17.5rem 2rem;
 }
 
 .pokecard span,
@@ -44,28 +50,30 @@ h2 {
 
 .pokecard h2 {
   font-size: 2.5rem;
+  font-family: "Poppins-Bold";
 }
 
 .pokecard span {
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-family: "Poppins-Bold";
 }
 
 .pokecard__top {
   display: flex;
-  gap: 0.5rem;
+  gap: 1.5rem;
 }
 
 .pokecard__img {
-  max-width: 60%;
+  width: 55%;
   position: absolute;
-  top: 10%;
+  top: 12%;
   z-index: 1;
 }
 
 .pokecard__info {
   background: #f9f9f9;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 0.75rem;
   margin-inline: 0.25rem;
   margin-block-end: 0.25rem;
 }
@@ -80,7 +88,7 @@ h2 {
 }
 
 .detail__ul li {
-  padding: 0.75rem 1rem;
+  padding: 0.35rem 1rem;
   border-radius: 1.5rem;
   color: white;
 }
@@ -127,13 +135,18 @@ h2 {
 }
 
 .about__stats-description {
-  margin-inline: 2rem;
+  margin: 3rem 1rem;
+  word-spacing: 0.5rem;
+  font-size: 1.075rem;
 }
 
 .stats__grid {
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;
+  margin-inline: 2rem;
+  margin-block-end: 1rem;
   gap: 1rem;
+  line-height: 1;
 }
 
 .stat__bar {
@@ -145,3 +158,49 @@ h2 {
   text-transform: uppercase;
   font-family: "Poppins-Bold";
 }
+
+
+
+@media screen and (min-width: 768px) {
+   
+   
+  .pokecard {
+    gap: 30rem;
+    padding: 3rem 2rem 15rem 2rem;
+  }
+
+  .pokecard__top {
+    gap: 3rem;
+  }
+
+  .pokecard__top h2 {
+    font-size: 3rem;
+  }
+
+  .pokecard span {
+    font-size: 2rem;
+  }
+
+  .pokeball__img {
+    width: 50%;
+    left: 60%;
+    top: 5%;
+  }
+
+  .pokecard__info {
+    margin: 5rem 25rem 5rem 25rem;
+  }
+
+
+  .pokecard__img {
+    max-width: 25rem;
+    top: 8%;
+  }
+  
+  .return__arrow {
+    width: 5rem;
+  }
+
+
+
+  }

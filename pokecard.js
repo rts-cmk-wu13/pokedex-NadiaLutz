@@ -89,7 +89,7 @@ function fetchPokemonById(id) {
                     <img src="img/pokeball.png" class="pokeball__img">    
                     <div class="pokecard__top">
                     <button class="return" onclick="returnBtn(event)">
-                      <img src="./img/arrow_back.png">
+                      <img src="./img/arrow_back.png" class="return__arrow">
                     </button>
                          <h2>${pokemon.name}</h2> 
                 </div>

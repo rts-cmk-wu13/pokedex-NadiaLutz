@@ -23,6 +23,10 @@ main section {
     background: linear-gradient(white 0%, white 65%, rgb(230, 230, 230) 66%);
 }
 
+.pokelist img {
+    max-width: 100%;
+}
+
 .pokelist__card p {
     color: black;
     text-align: center;
@@ -42,4 +46,13 @@ main section {
 
 .pokelist__card img {
     padding: 0 1rem;
+}
+
+
+@media screen and (min-width: 768px) {
+   
+   
+.pokelist { 
+    grid-template-columns: repeat(6, 1fr);
+ }
 }

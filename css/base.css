@@ -42,6 +42,13 @@ section {
     background: var(--primary-bg);
 }
 
+h1, h2, h3 {
+    font-family: "Poppins-bold";
+}
+
+h3 {
+    font-size: 1.5rem;
+}
 
 ul {
     list-style: none;
@@ -55,11 +62,6 @@ a {
     text-decoration: none;
 }
 
-img {
-    max-width: 100%;
-}
-
-
 .sort__btn, .search, .pokecard__info, main section div {
-    box-shadow: inset 1px 1px 5px 1px rgb(119, 119, 119);
+    box-shadow: inset 1px 5px 10px 1px rgb(212, 212, 212);
 }

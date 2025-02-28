@@ -79,9 +79,9 @@ dialog div {
   
 
   dialog div .container .checkmark:after {
-       top: 20%;
-      left: 15%;
-      width: 0.75rem;
+       top: 15%;
+      left: 20%;
+      width: 0.8rem;
       height: 0.75rem;
       border-radius: 50%;
       background: var(--primary-red)

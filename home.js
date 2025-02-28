@@ -26,7 +26,7 @@ let observer = new IntersectionObserver(function(entries) {
     if(entry.isIntersecting) {
       currentOffset = currentOffset + 12;
 
-      if(currentOffset < 1304 && currentOffset < 1000) {
+      if(currentOffset < 1304) {
         fetchPokemon(currentOffset);
       } else {
         console.log("No more Pokémon to fetch");
