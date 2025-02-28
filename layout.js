@@ -14,7 +14,7 @@ if (window.location.pathname.endsWith('index.html') ||
     <div class="header__search">
         <input class="search "id="searchbar" 
                onkeyup="searchPokemon()" 
-               type="text" name="search" 
+               type="text" name="name" 
                placeholder="    Search"">
         <button class="sort__btn" onclick="showDialog()"><img src="/img/tag.png" class="hashtag"></button>
     </div>

@@ -1,22 +1,35 @@
 let sectionElm = document.createElement("section");
 sectionElm.className = "pokelist";
 
-
 function getIdFromPokemon(pokemonUrl) {
   return pokemonUrl.slice(0, -1).split("/").pop();
 }
 
 let currentOffset = 0;
 
-const observer = new IntersectionObserver(function(entries) { 
+function searchPokemon() {
+    let searchInput = document.getElementById("searchbar").value.toLowerCase();
+    let pokemonCards = document.querySelectorAll(".pokelist__card");
+    
+    pokemonCards.forEach(card => {
+        let pokemonName = card.querySelector("p").textContent.toLowerCase();
+        if (pokemonName.includes(searchInput)) {
+            card.style.display = "block"; 
+        } else {
+            card.style.display = "none"; 
+        }
+    });
+}
+
+let observer = new IntersectionObserver(function(entries) { 
   entries.forEach(function(entry) {
     if(entry.isIntersecting) {
-      currentOffset = currentOffset + 50;
+      currentOffset = currentOffset + 12;
 
-      if(currentOffset < 1304) {
+      if(currentOffset < 1304 && currentOffset < 1000) {
         fetchPokemon(currentOffset);
       } else {
-        console.log("No more Pokemon to fetch");
+        console.log("No more Pokémon to fetch");
       }
     }
   });
@@ -27,10 +40,13 @@ function fetchPokemon(offset) {
     .then(function(response) {
       return response.json();
     }).then(function(data) {
-      console.log(data);
+      console.log("Fetched Pokémon Data:", data);
+
       sectionElm.innerHTML += data.results.map(pokemon => {
-        const pokemonId = getIdFromPokemon(pokemon.url);
-        const artworkUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`;
+        let pokemonId = getIdFromPokemon(pokemon.url);
+        let artworkUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`;
+        console.log("Image URL:", artworkUrl);
+
         return `
           <article> 
             <li class="pokelist__card">
@@ -50,15 +66,15 @@ function fetchPokemon(offset) {
 document.querySelector("main").append(sectionElm);
 fetchPokemon(currentOffset);
 
-
 function displayPokemon(pokemon) {
-    const sectionElm = document.querySelector(".pokelist");
+    let sectionElm = document.querySelector(".pokelist");
     sectionElm.innerHTML = '';
     if (!pokemon || !pokemon.id) {
         sectionElm.innerHTML = `<h2>Pokémon not found</h2>`;
+        console.error("Pokémon not found for ID:", pokename);
         return; 
     }
-    const artworkUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`;
+    let artworkUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`;
     
     sectionElm.innerHTML += `
         <article> 
@@ -71,11 +87,9 @@ function displayPokemon(pokemon) {
     `;
 }
 
-
 let search = window.location.search;
 let params = new URLSearchParams(search);
 let pokename = params.get("name");
-
 
 if (pokename) {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokename}`)

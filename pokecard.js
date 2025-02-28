@@ -12,7 +12,7 @@ function returnBtn(event) {
 }
 
 function getBackgroundColor(types) {
-    const typeColors = {
+    let typeColors = {
         bug: '#A8B820',
         dark: '#75574C',
         dragon: '#7037FF',
@@ -36,18 +36,18 @@ function getBackgroundColor(types) {
 }
 
 function fetchPokemonData(pokemon) {
-    const types = pokemon.types.map(typeInfo => typeInfo.type.name);
-    const backgroundColor = getBackgroundColor(types);
+    let types = pokemon.types.map(typeInfo => typeInfo.type.name);
+    let backgroundColor = getBackgroundColor(types);
 
     let url = pokemon.url;
     fetch(url)
     .then(response => response.json())
     .then(function(pokeData) {
-        const speciesUrl = pokeData.species.url; 
+        let speciesUrl = pokeData.species.url; 
         fetch(speciesUrl) 
         .then(response => response.json())
         .then(speciesData => {
-            const description = speciesData.flavor_text_entries.find(entry => entry.language.name === 'en').flavor_text;
+            let description = speciesData.flavor_text_entries.find(entry => entry.language.name === 'en').flavor_text;
 
             renderPokemon(pokeData, backgroundColor, description);
         });
@@ -67,12 +67,13 @@ function fetchPokemonById(id) {
             return response.json();
         })
         .then(pokemon => {
-            console.log("Fetched Pokémon Data:", pokemon);
-            const speciesUrl = pokemon.species.url;
+            console.log("Fetched Pokémon Data for ID:", id, pokemon);
+
+            let speciesUrl = pokemon.species.url;
             fetch(speciesUrl)
             .then(response => response.json())
             .then(speciesData => {
-                const description = speciesData.flavor_text_entries.find(entry => entry.language.name === 'en').flavor_text.replace(/\n/g, ' ');
+                let description = speciesData.flavor_text_entries.find(entry => entry.language.name === 'en').flavor_text.replace(/\n/g, ' ');
 
                 let detailSection = document.querySelector(".detail__section");
                 detailSection.classList.add("detail__section--details");
@@ -128,7 +129,8 @@ function fetchPokemonById(id) {
             });
         })
         .catch(error => {
-            console.error("Error fetching Pokémon data:", error);
+            console.error("Error fetching Pokémon data for ID:", id, error);
+
         });
 }
 
