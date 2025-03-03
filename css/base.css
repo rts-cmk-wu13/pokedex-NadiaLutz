@@ -1,0 +1,67 @@
+
+:root {
+    --primary-red: #DC0A2D;
+    --primary-bg: #EFEFEF;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("/font/Poppins-Regular.ttf");
+}
+    
+    @font-face {
+        font-family: "Poppins-bold";
+        src: url("/font/Poppins-Bold.ttf");
+    
+}
+
+html {
+    font-family: "Poppins";
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+header, main {
+    background: var(--primary-red);
+    margin: 0;
+    padding: 0;
+}
+
+
+section {
+    background: var(--primary-bg);
+}
+
+h1, h2, h3 {
+    font-family: "Poppins-bold";
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.sort__btn, .search, .pokecard__info, main section div {
+    box-shadow: inset 1px 5px 10px 1px rgb(212, 212, 212);
+}

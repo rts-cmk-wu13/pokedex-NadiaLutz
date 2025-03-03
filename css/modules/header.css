@@ -1,0 +1,62 @@
+
+header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+header span {
+    font-size: 2.425rem;
+    font-family: "Poppins-Bold";
+    color: white;
+}
+
+.header__logo {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 1rem 1.5rem 0rem 1.5rem;
+}
+
+.header__logo img {
+    width: 2.5rem;
+}
+
+.header__search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-block-end: 1rem;
+}
+
+.search {
+    margin-inline-start: 1rem;
+    border-radius: 2rem;
+    border: none;
+    width: 80%;
+    height: 3rem;
+    font-size: 1.5rem;
+    padding-inline-start: 4rem;
+    background-image: url(/img/search.png);
+    background-size: 2rem;
+    background-position: 1rem;
+    background-repeat: no-repeat;
+}
+
+input:focus {
+    outline: none;
+}
+
+.sort__btn {
+    background: var(--primary-bg);
+    border: none;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+}
+
+.hashtag {
+    width: 1.5rem;
+}
+
